@@ -1,103 +1,123 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SGIC.Persona">
-    <Position X="3.5" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAIACAAAACAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
-      <FileName>Persona.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="telefonos" />
-      <Property Name="roles" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="SGIC.Telefono">
-    <Position X="0.5" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
-      <FileName>Telefono.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="tipo" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="SGIC.TipoTelefono">
-    <Position X="0.5" Y="7.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TipoTelefono.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SGIC.Rol">
-    <Position X="3.5" Y="7" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Rol.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SGIC.Chofer">
-    <Position X="2.25" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Chofer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SGIC.Duenio">
-    <Position X="4.5" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
-      <FileName>Duenio.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SGIC.Automovil">
-    <Position X="6.75" Y="4.75" Width="1.5" />
+  <Class Name="SGIC.Models.Automovil">
+    <Position X="22.75" Y="30.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAACACAAAQAAAAAAAAAAAAAAAABEM=</HashCode>
-      <FileName>Automovil.cs</FileName>
+      <FileName>Models\Automovil.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="duenio" />
       <Property Name="chofer" />
+      <Property Name="duenio" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="gastos" />
       <Property Name="quincenas" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="SGIC.Gasto">
-    <Position X="6.75" Y="2.5" Width="1.5" />
+  <Class Name="SGIC.Models.TipoTelefono">
+    <Position X="16.75" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TipoTelefono.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SGIC.Models.Chofer">
+    <Position X="19.25" Y="34.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Chofer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SGIC.Models.Duenio">
+    <Position X="21" Y="34.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Duenio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SGIC.Models.Gasto">
+    <Position X="22.75" Y="27.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAQAAAQAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Gastos.cs</FileName>
+      <FileName>Models\Gastos.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="tipo" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SGIC.TipoGasto">
-    <Position X="3.5" Y="2.5" Width="1.5" />
+  <Class Name="SGIC.Models.Persona">
+    <Position X="20" Y="30.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TipoGasto.cs</FileName>
+      <HashCode>AAAAAAABAAAAIACAAAACAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\Persona.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="telefonos" />
+      <Property Name="roles" />
+    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="SGIC.Quincena">
-    <Position X="9.5" Y="2.5" Width="1.5" />
+  <Class Name="SGIC.Models.Quincena">
+    <Position X="25.5" Y="30" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAIAAAAAAAAIAACACAAAAAAIgAEAAAGAAAAAAAAA=</HashCode>
-      <FileName>Quincena.cs</FileName>
+      <FileName>Models\Quincena.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="gastos" />
       <Property Name="semanas" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="SGIC.Semana">
-    <Position X="12.25" Y="2.5" Width="1.5" />
+  <Class Name="SGIC.Models.Rol">
+    <Position X="20" Y="32.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAIAIACAAAAAAIAIAAAACgAAAoAAAA=</HashCode>
-      <FileName>Semana.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Rol.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="SGIC.Models.Semana">
+    <Position X="25.5" Y="33.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAAAAAAAAAAIAIACAAAAAAIAIAAAACgAAAoAAAA=</HashCode>
+      <FileName>Models\Semana.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="dias" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SGIC.Models.Telefono">
+    <Position X="16.75" Y="30.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\Telefono.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="tipo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SGIC.Models.TipoGasto">
+    <Position X="20" Y="28.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TipoGasto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SGIC.Models.Viaje">
+    <Position X="28.25" Y="31.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQEAAQAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Viaje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SGIC.Models.Dia">
+    <Position X="28.25" Y="34" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAABAAAAEAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\Dia.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="viajes" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Tahoma" Size="8.25" />
 </ClassDiagram>

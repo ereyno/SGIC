@@ -4,7 +4,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 
-namespace SGIC
+namespace SGIC.Models
 {
     public class Gasto
     {

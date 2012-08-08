@@ -4,9 +4,10 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 
-namespace SGIC
+namespace SGIC.Models
 {
-    public abstract class Rol
+    public class Duenio: Rol
     {
+        public string numeroCuenta { get; set; }
     }
 }

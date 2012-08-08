@@ -4,9 +4,9 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 
-namespace SGIC
+namespace SGIC.Models
 {
-    public class TipoGasto
+    public class TipoTelefono
     {
         public string nombre { get; set; }
     }

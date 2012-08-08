@@ -5,35 +5,32 @@ using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Collections.Generic;
 
-namespace SGIC
+namespace SGIC.Models
 {
-    public class Quincena
+    public class Semana
     {
+        public decimal totalEfectivo { get; set; }
+        public decimal totalCuentaCorriente { get; set; }
+        public decimal totalPeajesPositivos { get; set; }
+        public decimal totalPeajesNegativos { get; set; }
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
-        public decimal total { get; set; }
-        public List<Gasto> gastos { get; set; }
-        public List<Semana> semanas { get; set; }
-        public bool isLiquidada { get; set; }
+        public decimal totalEstacionamientos { get; set; }
+        public List<Dia> dias { get; set; }
 
         #region
 
-        public bool LiquidarQuincena()
+        public decimal LiquidarSemana()
         {
             throw new NotImplementedException();
         }
 
-        public decimal CalcularGastos()
+        private decimal CalcularGastos()
         {
             throw new NotImplementedException();
         }
 
-        public int CalcularDiasSinTrabajar()
-        {
-            throw new NotImplementedException();
-        }
-
-        private decimal CalcularComision()
+        private decimal CalcularIngresos()
         {
             throw new NotImplementedException();
         }

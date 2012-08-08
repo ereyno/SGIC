@@ -4,10 +4,10 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 
-namespace SGIC
+namespace SGIC.Models
 {
-    public class TipoTelefono
+    public class Chofer: Rol
     {
-        public string nombre { get; set; }
+        public int cuil { get; set; }
     }
 }
