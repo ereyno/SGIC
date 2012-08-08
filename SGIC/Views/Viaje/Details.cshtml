@@ -1,0 +1,40 @@
+﻿@model SGIC.Models.Viaje
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Viaje</legend>
+
+    <div class="display-label">fecha</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fecha)
+    </div>
+
+    <div class="display-label">numeroViaje</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.numeroViaje)
+    </div>
+
+    <div class="display-label">efectivo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.efectivo)
+    </div>
+
+    <div class="display-label">importe</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.importe)
+    </div>
+
+    <div class="display-label">peaje</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.peaje)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
