@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="f45360d2-c7e3-4d99-92a9-b963e3d5fe4f" name="ezequiel@EZEQUIEL-VZ 2012-08-07 23:09:54" runUser="EZEQUIEL-VZ\ezequiel" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="7bf1a4a0-217b-4304-8ed1-c843f540fbd5">
+    <Deployment runDeploymentRoot="ezequiel_EZEQUIEL-VZ 2012-08-07 23_09_54">
+      <DeploymentItem filename="C:\devel\SGIC\SGIC\bin\SGIC.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-08-07T23:09:54.2940494-03:00" queuing="2012-08-07T23:10:01.8787988-03:00" start="2012-08-07T23:09:54.2940494-03:00" finish="2012-08-07T23:10:03.3906136-03:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="2" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="EZEQUIEL-VZ" outcome="Error" timestamp="2012-08-07T23:10:03.3003560-03:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="About" storage="c:\devel\sgic\sgic.tests\bin\debug\sgic.tests.dll" id="b6b04bea-c237-c568-1932-5a44564a61c8">
+      <Execution id="334ebeb9-dfe4-44a1-9152-7f65ac2ef41c" />
+      <TestMethod codeBase="C:/devel/SGIC/SGIC.Tests/bin/Debug/SGIC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SGIC.Tests.Controllers.HomeControllerTest, SGIC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="About" />
+    </UnitTest>
+    <UnitTest name="Index" storage="c:\devel\sgic\sgic.tests\bin\debug\sgic.tests.dll" id="db0efb54-b92c-6fa3-0714-b249aa9196ec">
+      <Execution id="7d41b4c4-8288-4921-a187-a9a15c914df8" />
+      <TestMethod codeBase="C:/devel/SGIC/SGIC.Tests/bin/Debug/SGIC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SGIC.Tests.Controllers.HomeControllerTest, SGIC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b6b04bea-c237-c568-1932-5a44564a61c8" executionId="334ebeb9-dfe4-44a1-9152-7f65ac2ef41c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="db0efb54-b92c-6fa3-0714-b249aa9196ec" executionId="7d41b4c4-8288-4921-a187-a9a15c914df8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="334ebeb9-dfe4-44a1-9152-7f65ac2ef41c" testId="b6b04bea-c237-c568-1932-5a44564a61c8" testName="About" computerName="EZEQUIEL-VZ" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="334ebeb9-dfe4-44a1-9152-7f65ac2ef41c">
+    </UnitTestResult>
+    <UnitTestResult executionId="7d41b4c4-8288-4921-a187-a9a15c914df8" testId="db0efb54-b92c-6fa3-0714-b249aa9196ec" testName="Index" computerName="EZEQUIEL-VZ" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d41b4c4-8288-4921-a187-a9a15c914df8">
+    </UnitTestResult>
+  </Results>
+</TestRun>

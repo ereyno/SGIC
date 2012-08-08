@@ -1,0 +1,7 @@
+C:\devel\SGIC\SGIC\bin\SGIC.dll
+C:\devel\SGIC\SGIC\bin\SGIC.pdb
+C:\devel\SGIC\SGIC\bin\EntityFramework.dll
+C:\devel\SGIC\SGIC\bin\EntityFramework.xml
+C:\devel\SGIC\SGIC\obj\Debug\ResolveAssemblyReference.cache
+C:\devel\SGIC\SGIC\obj\Debug\SGIC.dll
+C:\devel\SGIC\SGIC\obj\Debug\SGIC.pdb
