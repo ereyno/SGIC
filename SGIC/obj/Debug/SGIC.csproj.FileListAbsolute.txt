@@ -7,8 +7,6 @@ C:\devel\SGIC\SGIC\obj\Debug\SGIC.dll
 C:\devel\SGIC\SGIC\obj\Debug\SGIC.pdb
 C:\Users\ezequiel.reyno\SGIC\SGIC\bin\SGIC.dll
 C:\Users\ezequiel.reyno\SGIC\SGIC\bin\SGIC.pdb
-C:\Users\ezequiel.reyno\SGIC\SGIC\bin\EntityFramework.dll
-C:\Users\ezequiel.reyno\SGIC\SGIC\bin\EntityFramework.xml
 C:\Users\ezequiel.reyno\SGIC\SGIC\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\ezequiel.reyno\SGIC\SGIC\obj\Debug\SGIC.dll
 C:\Users\ezequiel.reyno\SGIC\SGIC\obj\Debug\SGIC.pdb

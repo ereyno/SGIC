@@ -14,5 +14,3 @@ C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\bin\Debug\SGIC.pdb
 C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\obj\Debug\SGIC.Tests.dll
 C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\obj\Debug\SGIC.Tests.pdb
-C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\bin\Debug\EntityFramework.dll
-C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\bin\Debug\EntityFramework.xml

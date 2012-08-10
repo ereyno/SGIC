@@ -12,6 +12,9 @@
 <table>
     <tr>
         <th>
+            dia
+        </th>
+        <th>
             fecha
         </th>
         <th>
@@ -32,6 +35,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.dia.DiaID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.fecha)
         </td>
         <td>
@@ -47,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.peaje)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ViajeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ViajeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ViajeID })
         </td>
     </tr>
 }

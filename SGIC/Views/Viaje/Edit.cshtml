@@ -14,7 +14,15 @@
     <fieldset>
         <legend>Viaje</legend>
 
-        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.ViajeID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DiaID, "dia")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("DiaID", String.Empty)
+            @Html.ValidationMessageFor(model => model.DiaID)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.fecha)

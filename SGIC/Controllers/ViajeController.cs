@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SGIC.Models;
+using SGIC.DAL;
+using SGIC.CustomHelpers;
+using SGIC.Bussiness;
 
 namespace SGIC.Controllers
 { 
@@ -18,7 +21,8 @@ namespace SGIC.Controllers
 
         public ViewResult Index()
         {
-            return View(db.Viajes.ToList());
+            var viajes = db.Viajes.Include(v => v.dia);
+            return View(viajes.ToList());
         }
 
         //
@@ -36,6 +40,7 @@ namespace SGIC.Controllers
         public ActionResult Create()
         {
             Viaje model = new Viaje();
+            ViewBag.DiaID = new SelectList(db.Dias, "DiaID", "DiaID");
             return View(model);
         } 
 
@@ -47,11 +52,13 @@ namespace SGIC.Controllers
         {
             if (ModelState.IsValid)
             {
+                CommonBussiness.SetDia(viaje);
                 db.Viajes.Add(viaje);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
+            ViewBag.DiaID = new SelectList(db.Dias, "DiaID", "DiaID", viaje.DiaID);
             return View(viaje);
         }
         
@@ -61,6 +68,7 @@ namespace SGIC.Controllers
         public ActionResult Edit(int id)
         {
             Viaje viaje = db.Viajes.Find(id);
+            ViewBag.DiaID = new SelectList(db.Dias, "DiaID", "DiaID", viaje.DiaID);
             return View(viaje);
         }
 
@@ -76,6 +84,7 @@ namespace SGIC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.DiaID = new SelectList(db.Dias, "DiaID", "DiaID", viaje.DiaID);
             return View(viaje);
         }
 

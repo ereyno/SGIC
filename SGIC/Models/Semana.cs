@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SGIC.Models
 {
     public class Semana
     {
+        [Key]
+        public int SemanaID { get; set; }
+
+        public int QuincenaID { get; set; }
+        public virtual Quincena quincena { get; set; }
+
         public decimal totalEfectivo { get; set; }
         public decimal totalCuentaCorriente { get; set; }
         public decimal totalPeajesPositivos { get; set; }
@@ -16,7 +19,8 @@ namespace SGIC.Models
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
         public decimal totalEstacionamientos { get; set; }
-        public List<Dia> dias { get; set; }
+
+        public virtual ICollection<Dia> dias { get; set; }
 
         #region
 

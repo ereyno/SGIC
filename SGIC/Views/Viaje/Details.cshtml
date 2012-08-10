@@ -9,6 +9,11 @@
 <fieldset>
     <legend>Viaje</legend>
 
+    <div class="display-label">dia</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dia.DiaID)
+    </div>
+
     <div class="display-label">fecha</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.fecha)
@@ -35,6 +40,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ViajeID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

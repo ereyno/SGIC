@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace SGIC.Models
 {
     public class TipoTelefono
     {
+        [Key]
+        public int TipoTelefonoID { get; set; }
+
         public string nombre { get; set; }
     }
 }

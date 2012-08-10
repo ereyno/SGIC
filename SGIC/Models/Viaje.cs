@@ -10,15 +10,30 @@ namespace SGIC.Models
         {
             fecha = DateTime.Today;
         }
+
         [Key]
-        public int id { get; set; }
+        public int ViajeID { get; set; }
+
+        public int DiaID { get; set; }
+        public virtual Dia dia { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Required(ErrorMessage = "La fecha es requerida.")]
         public DateTime fecha { get; set; }
+
         [Display(Name = "Numero de Viaje")]
+        [Required(ErrorMessage = "El número de viaje es requerido.")]
         public int numeroViaje { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:c}")]
         [Display(Name = "Monto Efectivo")]
         public decimal efectivo { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:c}")]
         [Display(Name = "Monto Cta. Cte.")]
         public decimal importe { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:c}")]
         [Display(Name = "Monto Peaje")]
         public decimal peaje { get; set; }
     }
