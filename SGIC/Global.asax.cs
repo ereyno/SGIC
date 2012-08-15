@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using SGIC.DAL;
+using System.Data.Entity;
 
 namespace SGIC
 {
@@ -31,6 +33,8 @@ namespace SGIC
 
         protected void Application_Start()
         {
+            Database.SetInitializer<SGICContext>(new SGICInitializer());
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

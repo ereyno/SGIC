@@ -9,9 +9,6 @@ namespace SGIC.Models
         [Key]
         public int SemanaID { get; set; }
 
-        public int QuincenaID { get; set; }
-        public virtual Quincena quincena { get; set; }
-
         public decimal totalEfectivo { get; set; }
         public decimal totalCuentaCorriente { get; set; }
         public decimal totalPeajesPositivos { get; set; }
@@ -21,6 +18,12 @@ namespace SGIC.Models
         public decimal totalEstacionamientos { get; set; }
 
         public virtual ICollection<Dia> dias { get; set; }
+
+        //Navigation
+        public virtual Quincena quincena { get; set; }
+
+        //Reference
+        //public int QuincenaID { get; set; }
 
         #region
 

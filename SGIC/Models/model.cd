@@ -11,7 +11,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIQACACAAAQAAAAAAAAAAAAAAAABEM=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAIQACACACAQAAAAAAAAAAAAAAAAhEM=</HashCode>
       <FileName>Models\Automovil.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -46,22 +46,36 @@
   </Class>
   <Class Name="SGIC.Models.Gasto">
     <Position X="55.5" Y="55.5" Width="1.5" />
+    <AssociationLine Name="quincena" Type="SGIC.Models.Quincena" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="56.555" Y="57.467" />
+        <Point X="56.555" Y="59" />
+        <Point X="57" Y="59" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="automovil" Type="SGIC.Models.Automovil" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="56.109" Y="57.467" />
+        <Point X="56.109" Y="59.812" />
+        <Point X="55.5" Y="59.812" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAABAAAAQAAAwAQAAAACAIAIAAAAAAAAAAAAAAEBAA=</HashCode>
       <FileName>Models\Gastos.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="automovil" />
       <Property Name="quincena" />
       <Property Name="tipo" />
+      <Property Name="automovil" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SGIC.Models.Persona">
     <Position X="51" Y="59.75" Width="1.5" />
     <AssociationLine Name="roles" Type="SGIC.Models.Rol" FixedToPoint="true">
       <Path>
-        <Point X="51.188" Y="61.224" />
-        <Point X="51.188" Y="62.5" />
+        <Point X="51.25" Y="61.606" />
+        <Point X="51.25" Y="62.5" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -79,6 +93,9 @@
       <HashCode>AEAAAIAAAAAAAAIQACACAAIAAAckAEAQAGAAAAAEAAA=</HashCode>
       <FileName>Models\Quincena.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="automovil" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="gastos" />
       <Property Name="semanas" />
@@ -86,6 +103,12 @@
   </Class>
   <Class Name="SGIC.Models.Rol">
     <Position X="51" Y="62.5" Width="1.5" />
+    <AssociationLine Name="persona" Type="SGIC.Models.Persona" FixedToPoint="true">
+      <Path>
+        <Point X="52.312" Y="62.5" />
+        <Point X="52.312" Y="61.606" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAQAAAAAACAAAAA=</HashCode>
       <FileName>Models\Rol.cs</FileName>
@@ -110,12 +133,12 @@
   <Class Name="SGIC.Models.Telefono">
     <Position X="48" Y="59.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAIAAAAAAAABAAAAAAAAAIAAAQAAAEAACAAAAA=</HashCode>
+      <HashCode>AAQABAAIAAAAAAAABAAAQAAAAAIAAEQAAAAAACAAAAA=</HashCode>
       <FileName>Models\Telefono.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="persona" />
       <Property Name="tipo" />
+      <Property Name="persona" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SGIC.Models.TipoGasto">

@@ -14,9 +14,6 @@ namespace SGIC.Models
         [Key]
         public int ViajeID { get; set; }
 
-        public int DiaID { get; set; }
-        public virtual Dia dia { get; set; }
-
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "La fecha es requerida.")]
         public DateTime fecha { get; set; }
@@ -36,5 +33,11 @@ namespace SGIC.Models
         [DisplayFormat(DataFormatString = "{0:c}")]
         [Display(Name = "Monto Peaje")]
         public decimal peaje { get; set; }
+
+        //Navigation
+        public virtual Dia dia { get; set; }
+
+        //Reference
+        //public int DiaID { get; set; }
     }
 }

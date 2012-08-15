@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using SGIC.Models;
 
 namespace SGIC.DAL
@@ -27,10 +26,5 @@ namespace SGIC.DAL
         public DbSet<Telefono> Telefonos { get; set; }
         public DbSet<TipoGasto> TipoGastos { get; set; }
         public DbSet<TipoTelefono> TipoTelefonos { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
     }
 }

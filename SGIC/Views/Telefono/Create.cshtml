@@ -1,0 +1,73 @@
+﻿@model SGIC.Models.Telefono
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Telefono</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TipoTelefonoID, "tipo")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("TipoTelefonoID", String.Empty)
+            @Html.ValidationMessageFor(model => model.TipoTelefonoID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PersonaID, "persona")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PersonaID", String.Empty)
+            @Html.ValidationMessageFor(model => model.PersonaID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.codigoArea)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.codigoArea)
+            @Html.ValidationMessageFor(model => model.codigoArea)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.primerParte)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.primerParte)
+            @Html.ValidationMessageFor(model => model.primerParte)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.segundaParte)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.segundaParte)
+            @Html.ValidationMessageFor(model => model.segundaParte)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isPrincipal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isPrincipal)
+            @Html.ValidationMessageFor(model => model.isPrincipal)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

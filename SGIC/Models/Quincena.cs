@@ -9,9 +9,6 @@ namespace SGIC.Models
         [Key]
         public int QuincenaID { get; set; }
 
-        public int AutomovilID { get; set; }
-        public Automovil automovil { get; set; }
-
         public string name { get; set; }
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
@@ -23,6 +20,14 @@ namespace SGIC.Models
 
         public virtual ICollection<Gasto> gastos { get; set; }
         public virtual ICollection<Semana> semanas { get; set; }
+
+        //Navigation
+        public Automovil automovil { get; set; }
+
+
+        //Reference
+        //public int AutomovilID { get; set; }
+
 
         #region
 

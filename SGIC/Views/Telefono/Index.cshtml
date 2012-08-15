@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SGIC.Models.Telefono>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            tipo
+        </th>
+        <th>
+            persona
+        </th>
+        <th>
+            codigoArea
+        </th>
+        <th>
+            primerParte
+        </th>
+        <th>
+            segundaParte
+        </th>
+        <th>
+            isPrincipal
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.persona.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigoArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.primerParte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.segundaParte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isPrincipal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TelefonoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TelefonoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TelefonoID })
+        </td>
+    </tr>
+}
+
+</table>

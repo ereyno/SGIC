@@ -5,12 +5,13 @@ namespace SGIC.Models
 {
     public class Telefono
     {
+        public Telefono()
+        {
+            tipo = new TipoTelefono();
+        }
+
         [Key]
         public int TelefonoID { get; set; }
-
-        public int TipoTelefonoID { get; set; }
-        public int PersonaID { get; set; }
-        public virtual Persona persona { get; set; }
 
         [Display(Name = "Codigo Area")]
         [MaxLength(5)]
@@ -26,7 +27,13 @@ namespace SGIC.Models
         [Display(Name = "Es principal?")]
         public bool isPrincipal { get; set; }
 
+        //Navigation
         [Display(Name = "Tipo")]
         public virtual TipoTelefono tipo { get; set; }
+        public virtual Persona persona { get; set; }
+
+        //Reference
+        public int TipoTelefonoID { get; set; }
+        //public int PersonaID { get; set; }
     }
 }

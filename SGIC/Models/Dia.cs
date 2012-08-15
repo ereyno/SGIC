@@ -9,13 +9,16 @@ namespace SGIC.Models
         [Key]
         public int DiaID { get; set; }
 
-        public int SemanaID { get; set; }
-        public virtual Semana semana { get; set; }
-
         public DateTime fecha { get; set; }
         public decimal total { get; set; }
 
         public virtual ICollection<Viaje> viajes { get; set; }
+        
+        //Navigation
+        public virtual Semana semana { get; set; }
+
+        //Reference
+        //public int SemanaID { get; set; }
 
         #region
 

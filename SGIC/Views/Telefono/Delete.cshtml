@@ -1,0 +1,48 @@
+﻿@model SGIC.Models.Telefono
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Telefono</legend>
+
+    <div class="display-label">tipo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo.nombre)
+    </div>
+
+    <div class="display-label">persona</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.persona.nombre)
+    </div>
+
+    <div class="display-label">codigoArea</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.codigoArea)
+    </div>
+
+    <div class="display-label">primerParte</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.primerParte)
+    </div>
+
+    <div class="display-label">segundaParte</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.segundaParte)
+    </div>
+
+    <div class="display-label">isPrincipal</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isPrincipal)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

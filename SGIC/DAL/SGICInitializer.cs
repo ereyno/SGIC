@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using SGIC.Models;
+using System.Data.Entity.Infrastructure;
 
 namespace SGIC.DAL
 {

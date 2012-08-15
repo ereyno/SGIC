@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using SGIC.Models;
 using SGIC.DAL;
+using SGIC.ViewModel;
 
 namespace SGIC.Controllers
 { 
@@ -36,7 +37,6 @@ namespace SGIC.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.TipoTelefonos = new SelectList(db.TipoTelefonos, "TipoTelefonoID", "nombre");
             return View();
         } 
 
@@ -50,7 +50,7 @@ namespace SGIC.Controllers
             {
                 db.Personas.Add(persona);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("EditId", new { id = persona.PersonaID });  
             }
 
             return View(persona);
@@ -58,22 +58,31 @@ namespace SGIC.Controllers
         
         //
         // GET: /Customer/Edit/5
- 
-        public ActionResult Edit(int id)
+
+        //public ActionResult EditId(int id)
+        //{
+        //    Persona persona = db.Personas.Find(id);
+        //    return View(persona);
+        //}
+
+        public ActionResult EditId(int id)
         {
-            Persona persona = db.Personas.Find(id);
-            return View(persona);
+            PersonaViewModel model = new PersonaViewModel();
+            model.persona = db.Personas.Find(id);
+            model.nuevoTelefono = new Telefono();
+            ViewBag.TipoTelefonoID = new SelectList(db.TipoTelefonos, "TipoTelefonoID", "nombre");
+            return View("Edit",model);
         }
 
         //
         // POST: /Customer/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Persona persona)
+        public ActionResult Edit(PersonaViewModel persona)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(persona).State = EntityState.Modified;
+                db.Entry(persona.persona).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

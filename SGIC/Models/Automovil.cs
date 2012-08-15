@@ -11,13 +11,19 @@ namespace SGIC.Models
 
         public string patente { get; set; }
         public DateTime fechaInicio { get; set; }
-        public Persona chofer { get; set; }
-        public Persona duenio { get; set; }
         public string foto { get; set; }
 
 
         public virtual ICollection<Gasto> gastos { get; set; }
         public virtual ICollection<Quincena> quincenas { get; set; }
+
+        //Navigation
+        public Persona chofer { get; set; }
+        public Persona duenio { get; set; }
+
+        //Reference
+        //public int? ChoferID { get; set; }
+        //public int? DuenioID { get; set; }
 
         #region
 

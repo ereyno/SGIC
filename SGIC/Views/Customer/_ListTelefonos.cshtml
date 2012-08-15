@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SGIC.Models.Telefono>
+<fieldset>
+    <legend>Telefonos</legend>
+        <table>
+            <tr>
+                <th>
+                    Tipo Telefono
+                </th>
+                <th>
+                    Telefono
+                </th>
+                <th>
+                    Principal
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.codigoArea) - @Html.DisplayFor(modelItem => item.primerParte) - @Html.DisplayFor(modelItem => item.segundaParte)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isPrincipal)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.TelefonoID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.TelefonoID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.TelefonoID })
+                </td>
+            </tr>
+    }
+
+    </table>
+</fieldset>

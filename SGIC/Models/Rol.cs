@@ -8,7 +8,10 @@ namespace SGIC.Models
         [Key]
         public int RolID { get; set; }
 
-        public int PersonaID { get; set; }
+        //Navigation
         public virtual Persona persona { get; set; }
+
+        //reference
+        //public int PersonaID { get; set; }
     }
 }

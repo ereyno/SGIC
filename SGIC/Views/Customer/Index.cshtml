@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SGIC.Models.Persona>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de choferes";
 }
 
 <h2>Index</h2>
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.direccion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PersonaID }) |
+            @Html.ActionLink("Edit", "EditId", new { id = item.PersonaID }) |
             @Html.ActionLink("Details", "Details", new { id=item.PersonaID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.PersonaID })
         </td>
