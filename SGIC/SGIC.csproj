@@ -82,7 +82,7 @@
     <Compile Include="Models\Viaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Quincena.cs" />
-    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\IRol.cs" />
     <Compile Include="Models\Semana.cs" />
     <Compile Include="Models\Telefono.cs" />
     <Compile Include="Models\TipoGasto.cs" />

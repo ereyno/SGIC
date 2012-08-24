@@ -56,7 +56,7 @@ namespace SGIC.Controllers
             if (ModelState.IsValid)
             {
                 model.nuevoTelefono.persona = db.Personas.Find(model.persona.PersonaID);
-                model.nuevoTelefono.tipo = db.TipoTelefonos.Find(model.nuevoTelefono.TipoTelefonoID);
+                model.nuevoTelefono.tipo = db.TipoTelefonos.Find(model.nuevoTelefono.tipo.TipoTelefonoID);
                 db.Telefonos.Add(model.nuevoTelefono);
                 db.SaveChanges();
                 return RedirectToAction("Index","Customer");  

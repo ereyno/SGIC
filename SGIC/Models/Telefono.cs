@@ -7,7 +7,8 @@ namespace SGIC.Models
     {
         public Telefono()
         {
-            tipo = new TipoTelefono();
+            if(tipo == null)
+                tipo = new TipoTelefono();
         }
 
         [Key]
@@ -28,12 +29,11 @@ namespace SGIC.Models
         public bool isPrincipal { get; set; }
 
         //Navigation
-        [Display(Name = "Tipo")]
         public virtual TipoTelefono tipo { get; set; }
         public virtual Persona persona { get; set; }
 
         //Reference
-        public int TipoTelefonoID { get; set; }
+        //public int TipoTelefonoID { get; set; }
         //public int PersonaID { get; set; }
     }
 }

@@ -8,8 +8,10 @@ namespace SGIC.Models
     {
         public Persona()
         {
-            telefonos = new List<Telefono>();
-            roles = new List<Rol>();
+            if(telefonos == null)
+                telefonos = new List<Telefono>();
+            if(roles == null)
+                roles = new List<IRol>();
         }
 
         [Key]
@@ -29,6 +31,11 @@ namespace SGIC.Models
 
 
         public virtual ICollection<Telefono> telefonos { get; set; }
-        public virtual ICollection<Rol> roles { get; set; }
+        public virtual ICollection<IRol> roles { get; set; }
+
+        public bool LiquidarQuincena()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -13,11 +13,11 @@
         <legend>Telefono</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.nuevoTelefono.tipo, "Tipo")
+            @Html.LabelFor(model => model.nuevoTelefono.tipo.nombre, "Tipo")
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.nuevoTelefono.TipoTelefonoID, (IEnumerable<SelectListItem>)ViewBag.TipoTelefonoID, String.Empty)
-            @Html.ValidationMessageFor(model => model.nuevoTelefono.TipoTelefonoID)
+            @Html.DropDownListFor(model => model.nuevoTelefono.tipo.TipoTelefonoID, (IEnumerable<SelectListItem>)ViewBag.TipoTelefonoID, String.Empty)
+            @Html.ValidationMessageFor(model => model.nuevoTelefono.tipo.TipoTelefonoID)
         </div>
 
         <div class="editor-label">
