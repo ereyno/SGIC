@@ -23,8 +23,9 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.direccion)
     </div>
+    @Html.Partial("_ListTelefonos", Model.telefonos)
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.PersonaID }) |
+    @Html.ActionLink("Edit", "EditId", new { id=Model.PersonaID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SGIC.Models.Automovil>
+
+<fieldset>
+    <legend>Vehiculos</legend>
+    <table>
+        <tr>
+            <th>
+                patente
+            </th>
+            <th>
+                fechaInicio
+            </th>
+            <th>
+                foto
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.patente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.foto)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.AutomovilID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.AutomovilID })
+            </td>
+        </tr>
+    }
+
+    </table>
+</fieldset>

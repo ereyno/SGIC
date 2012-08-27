@@ -7,8 +7,6 @@ namespace SGIC.Models
     {
         public Telefono()
         {
-            if(tipo == null)
-                tipo = new TipoTelefono();
         }
 
         [Key]

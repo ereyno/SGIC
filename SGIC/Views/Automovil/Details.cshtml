@@ -1,0 +1,30 @@
+﻿@model SGIC.Models.Automovil
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Automovil</legend>
+
+    <div class="display-label">patente</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.patente)
+    </div>
+
+    <div class="display-label">fechaInicio</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fechaInicio)
+    </div>
+
+    <div class="display-label">foto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.foto)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AutomovilID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

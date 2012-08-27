@@ -27,8 +27,7 @@
                     @Html.DisplayFor(modelItem => item.isPrincipal)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.TelefonoID }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.TelefonoID }) |
+                    @Html.ActionLink("Edit", "Edit", "Telefono", new { id = item.TelefonoID }, new { }) |
                     @Html.ActionLink("Delete", "Delete", new { id=item.TelefonoID })
                 </td>
             </tr>

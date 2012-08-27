@@ -10,5 +10,7 @@ namespace SGIC.ViewModel
     {
         public Persona persona { get; set; }
         public Telefono nuevoTelefono { get; set; }
+        public Automovil nuevoAutomovil { get; set; }
+        public List<Automovil> vehiculos { get; set; }
     }
 }

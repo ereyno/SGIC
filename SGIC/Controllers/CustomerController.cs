@@ -70,6 +70,7 @@ namespace SGIC.Controllers
             PersonaViewModel model = new PersonaViewModel();
             model.persona = db.Personas.Find(id);
             model.nuevoTelefono = new Telefono();
+            model.vehiculos = db.Automoviles.Where(i => i.chofer.PersonaID == id && i.duenio.PersonaID == id).ToList<Automovil>();
             ViewBag.TipoTelefonoID = new SelectList(db.TipoTelefonos, "TipoTelefonoID", "nombre");
             return View("Edit",model);
         }

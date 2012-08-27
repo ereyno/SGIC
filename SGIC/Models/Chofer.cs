@@ -6,7 +6,7 @@ namespace SGIC.Models
     public class Chofer: IRol
     {
         [Key]
-        public int DuenioID { get; set; }
+        public int ChoferID { get; set; }
 
         //Navigation
         public virtual Persona persona { get; set; }

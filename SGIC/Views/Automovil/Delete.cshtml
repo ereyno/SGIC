@@ -1,0 +1,33 @@
+﻿@model SGIC.Models.Automovil
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Automovil</legend>
+
+    <div class="display-label">patente</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.patente)
+    </div>
+
+    <div class="display-label">fechaInicio</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fechaInicio)
+    </div>
+
+    <div class="display-label">foto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.foto)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

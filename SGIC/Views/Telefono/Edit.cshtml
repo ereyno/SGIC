@@ -17,42 +17,20 @@
         @Html.HiddenFor(model => model.TelefonoID)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.TipoTelefonoID, "tipo")
+            @Html.LabelFor(model => model.tipo.TipoTelefonoID, "tipo")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("TipoTelefonoID", String.Empty)
-            @Html.ValidationMessageFor(model => model.TipoTelefonoID)
+            @Html.DropDownListFor(model => model.tipo.TipoTelefonoID, (IEnumerable<SelectListItem>)ViewBag.TipoTelefonoID, String.Empty)
+            @Html.ValidationMessageFor(model => model.tipo.TipoTelefonoID)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.PersonaID, "persona")
+            @Html.LabelFor(model => model.codigoArea) | @Html.LabelFor(model => model.primerParte)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("PersonaID", String.Empty)
-            @Html.ValidationMessageFor(model => model.PersonaID)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.codigoArea)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.codigoArea)
+            @Html.EditorFor(model => model.codigoArea) - @Html.EditorFor(model => model.primerParte) - @Html.EditorFor(model => model.segundaParte)
             @Html.ValidationMessageFor(model => model.codigoArea)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.primerParte)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.primerParte)
             @Html.ValidationMessageFor(model => model.primerParte)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.segundaParte)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.segundaParte)
             @Html.ValidationMessageFor(model => model.segundaParte)
         </div>
 
@@ -65,11 +43,11 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Guardar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Edit", "Customer", new { id = Model.persona.PersonaID }, new { })
 </div>

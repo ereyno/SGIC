@@ -70,6 +70,7 @@ namespace SGIC.Controllers
         public ActionResult Edit(int id)
         {
             Telefono telefono = db.Telefonos.Find(id);
+            ViewBag.TipoTelefonoID = new SelectList(db.TipoTelefonos, "TipoTelefonoID", "nombre");
             return View(telefono);
         }
 
@@ -83,7 +84,7 @@ namespace SGIC.Controllers
             {
                 db.Entry(telefono).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditId", "Customer", new { id = telefono.persona.PersonaID }); 
             }
             return View(telefono);
         }

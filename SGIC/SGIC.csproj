@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bussiness\CommonBussiness.cs" />
+    <Compile Include="Controllers\AutomovilController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\TelefonoController.cs" />
     <Compile Include="CustomHelpers\DateTimeHelper.cs" />
@@ -166,13 +167,20 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Customer\_CreateTelefono.cshtml" />
-    <Content Include="Views\Customer\_ListTelefonos.cshtml" />
+    <Content Include="Views\Shared\_CreateTelefono.cshtml" />
+    <Content Include="Views\Shared\_ListTelefonos.cshtml" />
     <Content Include="Views\Telefono\Index.cshtml" />
     <Content Include="Views\Telefono\Details.cshtml" />
     <Content Include="Views\Telefono\Create.cshtml" />
     <Content Include="Views\Telefono\Edit.cshtml" />
     <Content Include="Views\Telefono\Delete.cshtml" />
+    <Content Include="Views\Shared\_ListAutomoviles.cshtml" />
+    <Content Include="Views\Shared\_CreateAutomovil.cshtml" />
+    <Content Include="Views\Automovil\Index.cshtml" />
+    <Content Include="Views\Automovil\Details.cshtml" />
+    <Content Include="Views\Automovil\Create.cshtml" />
+    <Content Include="Views\Automovil\Edit.cshtml" />
+    <Content Include="Views\Automovil\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

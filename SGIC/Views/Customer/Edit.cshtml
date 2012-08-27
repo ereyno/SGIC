@@ -8,7 +8,15 @@
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        //collapsible panel management + collapse initially
+        $(".collapsibleHeader").toggleClass("collapsibleExpanded", false).click(function () {
+            $(this).toggleClass("collapsibleExpanded").next(".collapsableBlack").slideToggle('fast');
+        });
+        $(".collapsableBlack").hide();
+    });
+</script>
     <fieldset>
         <legend>Persona</legend>
 @using (Html.BeginForm()) {
@@ -46,9 +54,25 @@
         </p>
 
         @Html.Partial("_ListTelefonos", Model.persona.telefonos)
+        @Html.Partial("_ListAutomoviles", Model.vehiculos)
 
 }
-        @Html.Partial("_CreateTelefono", Model)
+        <div id="collapsibleHeader" class="collapsibleHeader">
+            <div class="collapsableBlue">
+                <label>Agregar Telefono</label>
+            </div>
+        </div>
+	    <div id="collapsibleBody" class="collapsableBlack">
+            @Html.Partial("_CreateTelefono", Model)
+        </div>
+        <div id="collapsibleHeader1" class="collapsibleHeader">
+            <div class="collapsableBlue">
+                <label>Agregar Vehiculo</label>
+            </div>
+        </div>
+	    <div id="collapsibleBody1" class="collapsableBlack">
+            @Html.Partial("_CreateAutomovil")
+        </div>
     </fieldset>
 
 <div>
