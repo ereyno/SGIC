@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SGIC.UI.Abstract;
+using SGIC.UI.Presenter;
+using SGIC.UI.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +19,10 @@ namespace SGIC.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            SplitView view = new SplitView();
+            SplitPresenter presenter = new SplitPresenter(view);
+            Application.Run(view);
         }
     }
 }

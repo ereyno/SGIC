@@ -14,3 +14,9 @@ C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\bin\Debug\SGIC.pdb
 C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\obj\Debug\SGIC.Tests.dll
 C:\Users\ezequiel.reyno\SGIC\SGIC.Tests\obj\Debug\SGIC.Tests.pdb
+C:\Development\SGIC\SGIC.Tests\obj\Debug\SGIC.Tests.csprojResolveAssemblyReference.cache
+C:\Development\SGIC\SGIC.Tests\obj\Debug\SGIC.Tests.dll
+C:\Development\SGIC\SGIC.Tests\obj\Debug\SGIC.Tests.pdb
+C:\Development\SGIC\SGIC.Tests\bin\Debug\SGIC.Tests.dll.config
+C:\Development\SGIC\SGIC.Tests\bin\Debug\SGIC.Tests.dll
+C:\Development\SGIC\SGIC.Tests\bin\Debug\SGIC.Tests.pdb
