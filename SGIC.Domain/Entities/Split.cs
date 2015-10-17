@@ -17,41 +17,12 @@ namespace SGIC.Domain.Entities
         public decimal Expense { get; set; }
         public decimal Credit { get; set; }
         public decimal Toll { get; set; }
-
-        public decimal Commision { get; }
-        public decimal DirversAmount { get; }
-        public decimal Deposit { get; }
         public int PersonID { get; set; }
         public bool isReady { get; set; }
 
-        //Navegation Properties
+        //Navigation properties
         public virtual ICollection<Extra> Extras { get; set; }
         public virtual Person Driver { get; set; }
-
-
-        #region
-
-        public bool LiquidarQuincena()
-        {
-            throw new NotImplementedException();
-        }
-
-        public decimal CalcularGastos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int CalcularDiasSinTrabajar()
-        {
-            throw new NotImplementedException();
-        }
-
-        private decimal CalcularComision()
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
 
     }
 }
