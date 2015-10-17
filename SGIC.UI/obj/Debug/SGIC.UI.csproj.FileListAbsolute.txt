@@ -1,0 +1,11 @@
+C:\Development\SGIC\SGIC.UI\bin\Debug\SGIC.UI.exe.config
+C:\Development\SGIC\SGIC.UI\obj\Debug\SGIC.UI.csprojResolveAssemblyReference.cache
+C:\Development\SGIC\SGIC.UI\obj\Debug\SGIC.UI.Properties.Resources.resources
+C:\Development\SGIC\SGIC.UI\obj\Debug\SGIC.UI.View.SplitView.resources
+C:\Development\SGIC\SGIC.UI\obj\Debug\SGIC.UI.csproj.GenerateResource.Cache
+C:\Development\SGIC\SGIC.UI\bin\Debug\SGIC.UI.exe
+C:\Development\SGIC\SGIC.UI\bin\Debug\SGIC.UI.pdb
+C:\Development\SGIC\SGIC.UI\bin\Debug\Ninject.dll
+C:\Development\SGIC\SGIC.UI\bin\Debug\Ninject.xml
+C:\Development\SGIC\SGIC.UI\obj\Debug\SGIC.UI.exe
+C:\Development\SGIC\SGIC.UI\obj\Debug\SGIC.UI.pdb
