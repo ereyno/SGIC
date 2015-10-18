@@ -43,18 +43,18 @@
             this.txtDeposit = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbDriver = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtEfvo = new System.Windows.Forms.TextBox();
-            this.cmbDriver = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtExtra = new System.Windows.Forms.TextBox();
-            this.txtExtraValue = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.lstExtras = new System.Windows.Forms.ListBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtExtraValue = new System.Windows.Forms.TextBox();
+            this.txtExtra = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -206,15 +206,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quincena";
             // 
-            // btnSave
+            // label9
             // 
-            this.btnSave.Location = new System.Drawing.Point(443, 211);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 14;
-            this.btnSave.Text = "Guardar";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 36);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Chofer";
+            // 
+            // cmbDriver
+            // 
+            this.cmbDriver.FormattingEnabled = true;
+            this.cmbDriver.Location = new System.Drawing.Point(134, 33);
+            this.cmbDriver.Name = "cmbDriver";
+            this.cmbDriver.Size = new System.Drawing.Size(100, 21);
+            this.cmbDriver.TabIndex = 17;
+            this.cmbDriver.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -233,23 +241,15 @@
             this.txtEfvo.Size = new System.Drawing.Size(100, 20);
             this.txtEfvo.TabIndex = 16;
             // 
-            // cmbDriver
+            // btnSave
             // 
-            this.cmbDriver.FormattingEnabled = true;
-            this.cmbDriver.Location = new System.Drawing.Point(134, 33);
-            this.cmbDriver.Name = "cmbDriver";
-            this.cmbDriver.Size = new System.Drawing.Size(100, 21);
-            this.cmbDriver.TabIndex = 17;
-            this.cmbDriver.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Chofer";
+            this.btnSave.Location = new System.Drawing.Point(443, 211);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 14;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // groupBox2
             // 
@@ -265,37 +265,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Adelantos y Pagos";
             // 
-            // label10
+            // lstExtras
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(558, 48);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Nombre";
-            // 
-            // txtExtra
-            // 
-            this.txtExtra.Location = new System.Drawing.Point(72, 32);
-            this.txtExtra.Name = "txtExtra";
-            this.txtExtra.Size = new System.Drawing.Size(100, 20);
-            this.txtExtra.TabIndex = 17;
-            // 
-            // txtExtraValue
-            // 
-            this.txtExtraValue.Location = new System.Drawing.Point(72, 58);
-            this.txtExtraValue.Name = "txtExtraValue";
-            this.txtExtraValue.Size = new System.Drawing.Size(100, 20);
-            this.txtExtraValue.TabIndex = 19;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 61);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Valor";
+            this.lstExtras.FormattingEnabled = true;
+            this.lstExtras.Location = new System.Drawing.Point(10, 84);
+            this.lstExtras.Name = "lstExtras";
+            this.lstExtras.Size = new System.Drawing.Size(243, 147);
+            this.lstExtras.TabIndex = 17;
             // 
             // btnAgregar
             // 
@@ -307,13 +283,37 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // lstExtras
+            // txtExtraValue
             // 
-            this.lstExtras.FormattingEnabled = true;
-            this.lstExtras.Location = new System.Drawing.Point(10, 84);
-            this.lstExtras.Name = "lstExtras";
-            this.lstExtras.Size = new System.Drawing.Size(243, 147);
-            this.lstExtras.TabIndex = 17;
+            this.txtExtraValue.Location = new System.Drawing.Point(72, 58);
+            this.txtExtraValue.Name = "txtExtraValue";
+            this.txtExtraValue.Size = new System.Drawing.Size(100, 20);
+            this.txtExtraValue.TabIndex = 19;
+            // 
+            // txtExtra
+            // 
+            this.txtExtra.Location = new System.Drawing.Point(72, 32);
+            this.txtExtra.Name = "txtExtra";
+            this.txtExtra.Size = new System.Drawing.Size(100, 20);
+            this.txtExtra.TabIndex = 17;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 61);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Valor";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(558, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Nombre";
             // 
             // SplitView
             // 

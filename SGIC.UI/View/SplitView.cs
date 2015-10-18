@@ -145,9 +145,10 @@ namespace SGIC.UI.View
             decimal.TryParse(this.txtExtraValue.Text, out value);
             var item = new ExtraModel { Key = this.txtExtra.Text, Value = value};
             this.Extras.Add(item);
-            //this.lstExtras.DataSource = this.Extras;
-            //this.lstExtras.DisplayMember = "ShowValue";
-            //this.lstExtras.ValueMember = "Key";
+            this.lstExtras.DisplayMember = "ShowValue";
+            this.lstExtras.ValueMember = "Key";
+            this.lstExtras.DataSource = null;
+            this.lstExtras.DataSource = this.Extras;
             this.lstExtras.Refresh();
             this.txtExtra.Text = string.Empty;
             this.txtExtraValue.Text = string.Empty;
