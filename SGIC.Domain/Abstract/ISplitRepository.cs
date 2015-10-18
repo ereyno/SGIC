@@ -14,5 +14,7 @@ namespace SGIC.Domain.Abstract
         List<Split> GetAllSplits();
         List<Split> GetAllSplitsByMonth(int month, int year);
         Split GetSingleSplit(DateTime date);
+        List<Person> GetAllDrivers();
+        bool SaveSplit(Split obj);
     }
 }

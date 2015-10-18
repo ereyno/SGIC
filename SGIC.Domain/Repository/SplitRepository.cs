@@ -80,5 +80,25 @@ namespace SGIC.Domain.Repository
                         Driver = new Person { Id = p.Id, Name = p.Name }
                     }).First();
         }
+
+        public List<Person> GetAllDrivers()
+        {
+            return Context.People.ToList();
+        }
+
+        public bool SaveSplit(Split obj)
+        {
+            bool retval = false;
+            try
+            {
+                this.Context.Splits.Add(obj);
+                obj.Id = this.Context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                retval = false;
+            }
+            return retval;
+        }
     }
 }

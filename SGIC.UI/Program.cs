@@ -1,4 +1,5 @@
 ﻿using SGIC.UI.Abstract;
+using SGIC.UI.Infrastructure;
 using SGIC.UI.Presenter;
 using SGIC.UI.View;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ninject;
 
 namespace SGIC.UI
 {
@@ -20,9 +22,9 @@ namespace SGIC.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            SplitView view = new SplitView();
-            SplitPresenter presenter = new SplitPresenter(view);
-            Application.Run(view);
+            var presenter = NinjectFactory.Instance.Kernel.Get<SplitPresenter>();
+
+            Application.Run((SplitView)presenter.view);
         }
     }
 }

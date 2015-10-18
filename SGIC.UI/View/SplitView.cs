@@ -1,4 +1,5 @@
-﻿using SGIC.UI.Abstract;
+﻿using SGIC.Domain.Entities;
+using SGIC.UI.Abstract;
 using SGIC.UI.Presenter;
 using System;
 using System.Collections.Generic;
@@ -44,8 +45,10 @@ namespace SGIC.UI.View
 
         public bool isDirty { get; set; }
         public decimal Commision { get; set; }
-        public decimal DirversAmount { get; set; }
+        public decimal DriversAmount { get; set; }
         public decimal Deposit { get; set; }
+        public decimal Cash { get; set; }
+        public List<Person> People { get; set; }
 
         public event EventHandler<EventArgs> SaveSplit;
 
@@ -59,8 +62,75 @@ namespace SGIC.UI.View
 
         private void SplitView_Load(object sender, EventArgs e)
         {
-            presenter = new SplitPresenter(this);
             this.isDirty = true;
+            this.cmbDriver.DataSource = this.People;
+            this.cmbDriver.DisplayMember = "Name";
+            this.cmbDriver.ValueMember = "Id";
+            this.cmbDriver.Refresh();
+        }
+
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+            decimal value = 0;
+            decimal.TryParse(txtTotal.Text, out value);
+            this.Total = value;
+            this.isDirty = true;
+            ManageUpdate();
+        }
+
+        private void txtExpenses_TextChanged(object sender, EventArgs e)
+        {
+            decimal value = 0;
+            decimal.TryParse(txtExpenses.Text, out value);
+            this.Expense = value;
+            ManageUpdate();
+        }
+
+        private void txtToll_TextChanged(object sender, EventArgs e)
+        {
+            decimal value = 0;
+            decimal.TryParse(txtToll.Text, out value);
+            this.Toll = value;
+            ManageUpdate();
+        }
+
+        private void txtCredit_TextChanged(object sender, EventArgs e)
+        {
+            decimal value = 0;
+            decimal.TryParse(txtCredit.Text, out value);
+            this.Credit = value;
+            ManageUpdate();
+        }
+
+        private void ManageUpdate()
+        {
+            this.isDirty = true;
+            if (ModelChange != null)
+            {
+                ModelChange(this, EventArgs.Empty);
+                this.UpdateReadOnly();
+            }
+        }
+
+        private void UpdateReadOnly()
+        {
+            this.txtDriver.Text = this.DriversAmount.ToString("c");
+            this.txtCommision.Text = this.Commision.ToString("c");
+            this.txtDeposit.Text = this.Deposit.ToString("c");
+            this.txtEfvo.Text = this.Cash.ToString("c");
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.SaveSplit(this, EventArgs.Empty);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var id = 0;
+            int.TryParse(((ComboBox)sender).SelectedValue.ToString(), out id);
+            this.PersonID = id;
+            ManageUpdate();
         }
     }
 }

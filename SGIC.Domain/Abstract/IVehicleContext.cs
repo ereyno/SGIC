@@ -13,5 +13,6 @@ namespace SGIC.Domain.Abstract
         DbSet<Split> Splits { get; set; }
         DbSet<Person> People { get; set; }
         DbSet<Extra> Extras { get; set; }
+        int SaveChanges();
     }
 }

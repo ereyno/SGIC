@@ -9,3 +9,16 @@ C:\Development\SGIC\SGIC.UI\bin\Debug\Ninject.dll
 C:\Development\SGIC\SGIC.UI\bin\Debug\Ninject.xml
 C:\Development\SGIC\SGIC.UI\obj\Debug\SGIC.UI.exe
 C:\Development\SGIC\SGIC.UI\obj\Debug\SGIC.UI.pdb
+C:\Development\SGIC\SGIC.UI\bin\Debug\EntityFramework.dll
+C:\Development\SGIC\SGIC.UI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Development\SGIC\SGIC.UI\bin\Debug\SGIC.Domain.dll
+C:\Development\SGIC\SGIC.UI\bin\Debug\SGIC.Domain.pdb
+C:\Development\SGIC\SGIC.UI\bin\Debug\EntityFramework.xml
+C:\Development\SGIC\SGIC.UI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Development\SGIC\SGIC.UI\bin\Debug\AutoMapper.dll
+C:\Development\SGIC\SGIC.UI\bin\Debug\AutoMapper.xml
+C:\Development\SGIC\SGIC.UI\bin\Debug\System.Data.SQLite.dll
+C:\Development\SGIC\SGIC.UI\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Development\SGIC\SGIC.UI\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Development\SGIC\SGIC.UI\bin\Debug\System.Data.SQLite.xml
+C:\Development\SGIC\SGIC.UI\bin\Debug\App_Data\VehicleInformation.sqlite

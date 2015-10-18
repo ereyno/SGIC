@@ -38,6 +38,13 @@ namespace SGIC.UI.Model
                 return (this.Credit + this.Toll - this.Commision);
             }
         }
+        public decimal Cash 
+        {
+            get
+            {
+                return (this.Total - this.Credit);
+            }
+        }
         public int PersonID { get; set; }
         public string PersonName { get; set; }
         public bool isReady { get; set; }

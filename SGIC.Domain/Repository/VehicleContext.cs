@@ -20,5 +20,10 @@ namespace SGIC.Domain.Repository
         public DbSet<Split> Splits { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Extra> Extras { get; set; }
+
+        int IVehicleContext.SaveChanges()
+        {
+            return base.SaveChanges();
+        }
     }
 }
