@@ -8,6 +8,10 @@ namespace SGIC.UI.Model
 {
     public class SplitModel
     {
+        public SplitModel()
+        {
+            this.Extras = new List<ExtraModel>();
+        }
         public int Id { get; set; }
 
         public string name { get; set; }
@@ -28,7 +32,7 @@ namespace SGIC.UI.Model
         { 
             get 
             {
-                return ((((this.Total - this.Commision) - (this.Expense / 2)) / 2) - (this.Total - this.Credit));
+                return ((((this.Total - this.Commision) - (this.Expense / 2)) / 2) - (this.Total - this.Credit)) - this.Extras.Sum(x => x.Value);
             } 
         }
         public decimal Deposit
@@ -56,5 +60,12 @@ namespace SGIC.UI.Model
         public int Id { get; set; }
         public string Key { get; set; }
         public decimal Value { get; set; }
+        public string ShowValue 
+        {
+            get
+            {
+                return this.Key + ": " + this.Value.ToString("c");
+            }
+        }
     }
 }

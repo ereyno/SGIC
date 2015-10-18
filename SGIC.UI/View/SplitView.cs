@@ -1,5 +1,6 @@
 ﻿using SGIC.Domain.Entities;
 using SGIC.UI.Abstract;
+using SGIC.UI.Model;
 using SGIC.UI.Presenter;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,7 @@ namespace SGIC.UI.View
         public decimal Deposit { get; set; }
         public decimal Cash { get; set; }
         public List<Person> People { get; set; }
-
+        public List<ExtraModel> Extras { get; set; }
         public event EventHandler<EventArgs> SaveSplit;
 
         public event EventHandler<EventArgs> NewSplit;
@@ -63,10 +64,15 @@ namespace SGIC.UI.View
         private void SplitView_Load(object sender, EventArgs e)
         {
             this.isDirty = true;
+            //Driver option
             this.cmbDriver.DataSource = this.People;
             this.cmbDriver.DisplayMember = "Name";
             this.cmbDriver.ValueMember = "Id";
             this.cmbDriver.Refresh();
+            //Extras list            
+            this.lstExtras.DataSource = this.Extras;
+            this.lstExtras.DisplayMember = "ShowValue";
+            this.lstExtras.ValueMember = "Key";
         }
 
         private void txtTotal_TextChanged(object sender, EventArgs e)
@@ -131,6 +137,20 @@ namespace SGIC.UI.View
             int.TryParse(((ComboBox)sender).SelectedValue.ToString(), out id);
             this.PersonID = id;
             ManageUpdate();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            decimal value = 0;
+            decimal.TryParse(this.txtExtraValue.Text, out value);
+            var item = new ExtraModel { Key = this.txtExtra.Text, Value = value};
+            this.Extras.Add(item);
+            //this.lstExtras.DataSource = this.Extras;
+            //this.lstExtras.DisplayMember = "ShowValue";
+            //this.lstExtras.ValueMember = "Key";
+            this.lstExtras.Refresh();
+            this.txtExtra.Text = string.Empty;
+            this.txtExtraValue.Text = string.Empty;
         }
     }
 }

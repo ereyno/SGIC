@@ -1,4 +1,5 @@
 ﻿using SGIC.Domain.Entities;
+using SGIC.UI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace SGIC.UI.Abstract
         string StatusChange { set; }
         bool isDirty { get; set; }
         List<Person> People { get; set; }
+        List<ExtraModel> Extras { get; set; }
         event EventHandler<EventArgs> SaveSplit;
         event EventHandler<EventArgs> NewSplit;
         event EventHandler<EventArgs> PrevSplit;

@@ -48,7 +48,15 @@
             this.txtEfvo = new System.Windows.Forms.TextBox();
             this.cmbDriver = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtExtra = new System.Windows.Forms.TextBox();
+            this.txtExtraValue = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.lstExtras = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -230,7 +238,7 @@
             this.cmbDriver.FormattingEnabled = true;
             this.cmbDriver.Location = new System.Drawing.Point(134, 33);
             this.cmbDriver.Name = "cmbDriver";
-            this.cmbDriver.Size = new System.Drawing.Size(121, 21);
+            this.cmbDriver.Size = new System.Drawing.Size(100, 21);
             this.cmbDriver.TabIndex = 17;
             this.cmbDriver.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -243,18 +251,87 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "Chofer";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lstExtras);
+            this.groupBox2.Controls.Add(this.btnAgregar);
+            this.groupBox2.Controls.Add(this.txtExtraValue);
+            this.groupBox2.Controls.Add(this.txtExtra);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Location = new System.Drawing.Point(551, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(261, 239);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Adelantos y Pagos";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(558, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Nombre";
+            // 
+            // txtExtra
+            // 
+            this.txtExtra.Location = new System.Drawing.Point(72, 32);
+            this.txtExtra.Name = "txtExtra";
+            this.txtExtra.Size = new System.Drawing.Size(100, 20);
+            this.txtExtra.TabIndex = 17;
+            // 
+            // txtExtraValue
+            // 
+            this.txtExtraValue.Location = new System.Drawing.Point(72, 58);
+            this.txtExtraValue.Name = "txtExtraValue";
+            this.txtExtraValue.Size = new System.Drawing.Size(100, 20);
+            this.txtExtraValue.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 61);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Valor";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(178, 56);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 20;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // lstExtras
+            // 
+            this.lstExtras.FormattingEnabled = true;
+            this.lstExtras.Location = new System.Drawing.Point(10, 84);
+            this.lstExtras.Name = "lstExtras";
+            this.lstExtras.Size = new System.Drawing.Size(243, 147);
+            this.lstExtras.TabIndex = 17;
+            // 
             // SplitView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 367);
+            this.ClientSize = new System.Drawing.Size(822, 267);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "SplitView";
             this.Text = "SplitView";
             this.Load += new System.EventHandler(this.SplitView_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -280,5 +357,12 @@
         private System.Windows.Forms.TextBox txtEfvo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbDriver;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtExtra;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.TextBox txtExtraValue;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListBox lstExtras;
     }
 }

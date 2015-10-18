@@ -35,6 +35,7 @@ namespace SGIC.UI.Presenter
             view.NextSplit += OnNext;
             view.ModelChange += OnModelChange;
             view.People = repo.GetAllDrivers();
+            view.Extras = split.Extras;
             BlankSplit();
             view.StatusChange = "Ready";
         }
