@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Abstract\ISplitView.cs" />
     <Compile Include="Infrastructure\NinjectFactory.cs" />
+    <Compile Include="Model\Enum.cs" />
     <Compile Include="Model\SplitModel.cs" />
     <Compile Include="Presenter\SplitPresenter.cs" />
     <Compile Include="Program.cs" />

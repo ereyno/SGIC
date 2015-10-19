@@ -26,28 +26,40 @@ namespace SGIC.UI.Presenter
             this.repo = repo;
             Initialize();
             Mapper.CreateMap<SplitModel, Split>();
+            Mapper.CreateMap<Split, SplitModel>();
             Mapper.CreateMap<ExtraModel, Extra>();
+            Mapper.CreateMap<Extra, ExtraModel>();
         }
         private void Initialize() {
-            split = new SplitModel();
+            
             view.SaveSplit += OnSave;
             view.NewSplit += OnNew;
             view.PrevSplit += OnPrevious;
             view.NextSplit += OnNext;
             view.ModelChange += OnModelChange;
-            view.People = repo.GetAllDrivers();
-            view.Extras = split.Extras;
+
             BlankSplit();
             view.StatusChange = "Ready";
         }
 
         private void BlankSplit()
         {
+            var people = repo.GetAllDrivers();
             //Create a new blank 
+            split = new SplitModel();
+            split.name = view.StartDateUtc.ToString("MMM");
+            split.PersonID = people.First().Id;
+
             view.StartDateUtc = DateTime.UtcNow;
             view.CreateDateUtc = DateTime.UtcNow;
-            split.name = view.StartDateUtc.ToString("MMM");
-            split.PersonID = view.People.First().Id;
+            view.People = people;
+            view.Extras = split.Extras;
+            view.Total = 0;
+            view.Toll = 0;
+            view.Credit = 0;
+            view.Expense = 0;
+            view.PersonID = split.PersonID;
+            view.Extras = split.Extras;
         }
 
 
@@ -58,10 +70,32 @@ namespace SGIC.UI.Presenter
 
         void OnNew(object sender, EventArgs e)
         {
+            BlankSplit();
         }
 
         void OnPrevious(object sender, EventArgs e)
         {
+            var month = view.StartDateUtc.Month - 1;
+            var year = view.StartDateUtc.Year;
+            var splitDTO = repo.GetAllSplitsByMonth(month, year).OrderByDescending(x => x.StartDateUtc).FirstOrDefault();
+            if(splitDTO != null)
+            {
+                split = Mapper.Map<SplitModel>(splitDTO);
+                //Values from screen
+                view.Total = split.Total;
+                view.Toll = split.Toll;
+                view.Credit = split.Credit;
+                view.Expense = split.Expense;
+                view.PersonID = split.PersonID;
+                view.Extras = split.Extras;
+                view.StartDateUtc = split.StartDateUtc;
+
+                //Calculated values from model
+                view.Commision = split.Commision;
+                view.DriversAmount = split.DirversAmount;
+                view.Deposit = split.Deposit;
+                view.Cash = split.Cash;
+            }
         }
 
         void OnNext(object sender, EventArgs e)
@@ -77,6 +111,7 @@ namespace SGIC.UI.Presenter
             split.Expense = view.Expense;
             split.PersonID = view.PersonID;
             split.Extras = view.Extras;
+            split.StartDateUtc = view.StartDateUtc;
 
             //Calculated values from model
             view.Commision = split.Commision;

@@ -82,7 +82,7 @@ namespace SGIC.UI.View
             decimal.TryParse(txtTotal.Text, out value);
             this.Total = value;
             this.isDirty = true;
-            ManageUpdate();
+            this.ManageUpdate();
         }
 
         private void txtExpenses_TextChanged(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace SGIC.UI.View
             decimal value = 0;
             decimal.TryParse(txtExpenses.Text, out value);
             this.Expense = value;
-            ManageUpdate();
+            this.ManageUpdate();
         }
 
         private void txtToll_TextChanged(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace SGIC.UI.View
             decimal value = 0;
             decimal.TryParse(txtToll.Text, out value);
             this.Toll = value;
-            ManageUpdate();
+            this.ManageUpdate();
         }
 
         private void txtCredit_TextChanged(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace SGIC.UI.View
             decimal value = 0;
             decimal.TryParse(txtCredit.Text, out value);
             this.Credit = value;
-            ManageUpdate();
+            this.ManageUpdate();
         }
 
         private void ManageUpdate()
@@ -127,9 +127,26 @@ namespace SGIC.UI.View
             this.txtEfvo.Text = this.Cash.ToString("c");
         }
 
+        private void UpdateView()
+        {
+            this.txtDriver.Text = this.DriversAmount.ToString("c");
+            this.txtCommision.Text = this.Commision.ToString("c");
+            this.txtDeposit.Text = this.Deposit.ToString("c");
+            this.txtEfvo.Text = this.Cash.ToString("c");
+            this.txtTotal.Text = this.Total.ToString();
+            this.txtToll.Text = this.Toll.ToString();
+            this.txtExpenses.Text = this.Expense.ToString();
+            this.txtCredit.Text = this.Credit.ToString();
+            this.lstExtras.DataSource = null;
+            this.lstExtras.DisplayMember = "ShowValue";
+            this.lstExtras.DataSource = this.Extras;
+            this.Refresh();
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             this.SaveSplit(this, EventArgs.Empty);
+            this.isDirty = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,7 +154,7 @@ namespace SGIC.UI.View
             var id = 0;
             int.TryParse(((ComboBox)sender).SelectedValue.ToString(), out id);
             this.PersonID = id;
-            ManageUpdate();
+            this.ManageUpdate();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -146,8 +163,8 @@ namespace SGIC.UI.View
             decimal.TryParse(this.txtExtraValue.Text, out value);
             var item = new ExtraModel { Key = this.txtExtra.Text, Value = value};
             this.Extras.Add(item);
-            UpdateExtra();
-            ManageUpdate();
+            this.UpdateExtra();
+            this.ManageUpdate();
             this.txtExtra.Text = string.Empty;
             this.txtExtraValue.Text = string.Empty;
         }
@@ -161,8 +178,8 @@ namespace SGIC.UI.View
             }
             var toremove = this.Extras.FirstOrDefault(x => x.Key == ((ExtraModel)this.lstExtras.SelectedItem).Key);
             this.Extras.Remove(toremove);
-            UpdateExtra();
-            ManageUpdate();
+            this.UpdateExtra();
+            this.ManageUpdate();
         }
 
         private void UpdateExtra()
@@ -171,6 +188,53 @@ namespace SGIC.UI.View
             this.lstExtras.DisplayMember = "ShowValue";
             this.lstExtras.DataSource = this.Extras;
             this.lstExtras.Refresh();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            this.ManageAction(ActionEnum.New);
+        }
+
+        private void dtSelector_ValueChanged(object sender, EventArgs e)
+        {
+            this.StartDateUtc = ((DateTimePicker)sender).Value;
+            this.ManageUpdate();
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            this.ManageAction(ActionEnum.Previous);
+        }
+
+        private void ManageAction(ActionEnum action)
+        {
+            if (this.isDirty)
+            {
+                var result = MessageBox.Show("La quincena actual no fue guardada, si continua perdera los datos.", "Nueva Quincena", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result == System.Windows.Forms.DialogResult.Cancel)
+                    return;
+            }
+            switch (action)
+            {
+                case ActionEnum.New:
+                    if (this.NewSplit != null)
+                    {
+                        this.NewSplit(this, EventArgs.Empty);
+                        this.UpdateView();
+                    }
+                    break;
+                case ActionEnum.Previous:
+                    if (this.PrevSplit != null)
+                    {
+                        this.PrevSplit(this, EventArgs.Empty);
+                        this.UpdateView();
+                    }
+                    break;
+                case ActionEnum.Next:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

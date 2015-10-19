@@ -56,6 +56,12 @@
             this.txtExtra = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dtSelector = new System.Windows.Forms.DateTimePicker();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.stsFooter = new System.Windows.Forms.StatusStrip();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -71,10 +77,11 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(134, 83);
+            this.txtTotal.Location = new System.Drawing.Point(143, 83);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
             this.txtTotal.TabIndex = 1;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
             // txtCommision
@@ -84,6 +91,7 @@
             this.txtCommision.ReadOnly = true;
             this.txtCommision.Size = new System.Drawing.Size(100, 20);
             this.txtCommision.TabIndex = 3;
+            this.txtCommision.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -101,6 +109,7 @@
             this.txtDriver.ReadOnly = true;
             this.txtDriver.Size = new System.Drawing.Size(100, 20);
             this.txtDriver.TabIndex = 5;
+            this.txtDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -113,10 +122,11 @@
             // 
             // txtExpenses
             // 
-            this.txtExpenses.Location = new System.Drawing.Point(134, 108);
+            this.txtExpenses.Location = new System.Drawing.Point(143, 108);
             this.txtExpenses.Name = "txtExpenses";
             this.txtExpenses.Size = new System.Drawing.Size(100, 20);
             this.txtExpenses.TabIndex = 7;
+            this.txtExpenses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtExpenses.TextChanged += new System.EventHandler(this.txtExpenses_TextChanged);
             // 
             // label4
@@ -130,10 +140,11 @@
             // 
             // txtToll
             // 
-            this.txtToll.Location = new System.Drawing.Point(134, 135);
+            this.txtToll.Location = new System.Drawing.Point(143, 133);
             this.txtToll.Name = "txtToll";
             this.txtToll.Size = new System.Drawing.Size(100, 20);
             this.txtToll.TabIndex = 9;
+            this.txtToll.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtToll.TextChanged += new System.EventHandler(this.txtToll_TextChanged);
             // 
             // label5
@@ -147,10 +158,11 @@
             // 
             // txtCredit
             // 
-            this.txtCredit.Location = new System.Drawing.Point(134, 161);
+            this.txtCredit.Location = new System.Drawing.Point(143, 161);
             this.txtCredit.Name = "txtCredit";
             this.txtCredit.Size = new System.Drawing.Size(100, 20);
             this.txtCredit.TabIndex = 11;
+            this.txtCredit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCredit.TextChanged += new System.EventHandler(this.txtCredit_TextChanged);
             // 
             // label6
@@ -169,6 +181,7 @@
             this.txtDeposit.ReadOnly = true;
             this.txtDeposit.Size = new System.Drawing.Size(100, 20);
             this.txtDeposit.TabIndex = 13;
+            this.txtDeposit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -181,6 +194,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnNext);
+            this.groupBox1.Controls.Add(this.btnNew);
+            this.groupBox1.Controls.Add(this.btnPrev);
+            this.groupBox1.Controls.Add(this.dtSelector);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.cmbDriver);
             this.groupBox1.Controls.Add(this.label8);
@@ -219,7 +237,7 @@
             // cmbDriver
             // 
             this.cmbDriver.FormattingEnabled = true;
-            this.cmbDriver.Location = new System.Drawing.Point(134, 33);
+            this.cmbDriver.Location = new System.Drawing.Point(143, 33);
             this.cmbDriver.Name = "cmbDriver";
             this.cmbDriver.Size = new System.Drawing.Size(100, 21);
             this.cmbDriver.TabIndex = 17;
@@ -241,6 +259,7 @@
             this.txtEfvo.ReadOnly = true;
             this.txtEfvo.Size = new System.Drawing.Size(100, 20);
             this.txtEfvo.TabIndex = 16;
+            this.txtEfvo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnSave
             // 
@@ -301,6 +320,7 @@
             this.txtExtraValue.Name = "txtExtraValue";
             this.txtExtraValue.Size = new System.Drawing.Size(100, 20);
             this.txtExtraValue.TabIndex = 19;
+            this.txtExtraValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtExtra
             // 
@@ -327,18 +347,72 @@
             this.label10.TabIndex = 16;
             this.label10.Text = "Nombre";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(290, 36);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Fecha";
+            // 
+            // dtSelector
+            // 
+            this.dtSelector.Location = new System.Drawing.Point(333, 33);
+            this.dtSelector.Name = "dtSelector";
+            this.dtSelector.Size = new System.Drawing.Size(185, 20);
+            this.dtSelector.TabIndex = 20;
+            this.dtSelector.ValueChanged += new System.EventHandler(this.dtSelector_ValueChanged);
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.Location = new System.Drawing.Point(6, 211);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(75, 23);
+            this.btnPrev.TabIndex = 21;
+            this.btnPrev.Text = "Anterior";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(87, 211);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 22;
+            this.btnNew.Text = "Nueva";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(168, 211);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 23;
+            this.btnNext.Text = "Siguiente";
+            this.btnNext.UseVisualStyleBackColor = true;
+            // 
+            // stsFooter
+            // 
+            this.stsFooter.Location = new System.Drawing.Point(0, 268);
+            this.stsFooter.Name = "stsFooter";
+            this.stsFooter.Size = new System.Drawing.Size(824, 22);
+            this.stsFooter.TabIndex = 17;
+            this.stsFooter.Text = "statusStrip1";
+            // 
             // SplitView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 267);
+            this.ClientSize = new System.Drawing.Size(824, 290);
+            this.Controls.Add(this.stsFooter);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SplitView";
-            this.Text = "SplitView";
             this.Load += new System.EventHandler(this.SplitView_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -379,5 +453,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListBox lstExtras;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.DateTimePicker dtSelector;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.StatusStrip stsFooter;
     }
 }
