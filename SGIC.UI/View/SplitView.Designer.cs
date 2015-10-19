@@ -49,6 +49,7 @@
             this.txtEfvo = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.lstExtras = new System.Windows.Forms.ListBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtExtraValue = new System.Windows.Forms.TextBox();
@@ -253,6 +254,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnRemove);
             this.groupBox2.Controls.Add(this.lstExtras);
             this.groupBox2.Controls.Add(this.btnAgregar);
             this.groupBox2.Controls.Add(this.txtExtraValue);
@@ -265,6 +267,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Adelantos y Pagos";
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(178, 56);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 21;
+            this.btnRemove.Text = "Quitar";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // lstExtras
             // 
             this.lstExtras.FormattingEnabled = true;
@@ -275,7 +287,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(178, 56);
+            this.btnAgregar.Location = new System.Drawing.Point(178, 30);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 20;
@@ -323,6 +335,8 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SplitView";
             this.Text = "SplitView";
             this.Load += new System.EventHandler(this.SplitView_Load);
@@ -364,5 +378,6 @@
         private System.Windows.Forms.TextBox txtExtraValue;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListBox lstExtras;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

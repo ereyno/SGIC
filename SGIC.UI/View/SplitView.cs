@@ -70,9 +70,10 @@ namespace SGIC.UI.View
             this.cmbDriver.ValueMember = "Id";
             this.cmbDriver.Refresh();
             //Extras list            
-            this.lstExtras.DataSource = this.Extras;
             this.lstExtras.DisplayMember = "ShowValue";
             this.lstExtras.ValueMember = "Key";
+            this.lstExtras.DataSource = this.Extras;
+            this.lstExtras.Refresh();
         }
 
         private void txtTotal_TextChanged(object sender, EventArgs e)
@@ -145,13 +146,31 @@ namespace SGIC.UI.View
             decimal.TryParse(this.txtExtraValue.Text, out value);
             var item = new ExtraModel { Key = this.txtExtra.Text, Value = value};
             this.Extras.Add(item);
-            this.lstExtras.DisplayMember = "ShowValue";
-            this.lstExtras.ValueMember = "Key";
-            this.lstExtras.DataSource = null;
-            this.lstExtras.DataSource = this.Extras;
-            this.lstExtras.Refresh();
+            UpdateExtra();
+            ManageUpdate();
             this.txtExtra.Text = string.Empty;
             this.txtExtraValue.Text = string.Empty;
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (this.lstExtras.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un extra para borrar", "Error al borrar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var toremove = this.Extras.FirstOrDefault(x => x.Key == ((ExtraModel)this.lstExtras.SelectedItem).Key);
+            this.Extras.Remove(toremove);
+            UpdateExtra();
+            ManageUpdate();
+        }
+
+        private void UpdateExtra()
+        {
+            this.lstExtras.DataSource = null;
+            this.lstExtras.DisplayMember = "ShowValue";
+            this.lstExtras.DataSource = this.Extras;
+            this.lstExtras.Refresh();
         }
     }
 }

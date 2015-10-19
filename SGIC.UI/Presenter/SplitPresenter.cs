@@ -26,6 +26,7 @@ namespace SGIC.UI.Presenter
             this.repo = repo;
             Initialize();
             Mapper.CreateMap<SplitModel, Split>();
+            Mapper.CreateMap<ExtraModel, Extra>();
         }
         private void Initialize() {
             split = new SplitModel();
@@ -45,6 +46,8 @@ namespace SGIC.UI.Presenter
             //Create a new blank 
             view.StartDateUtc = DateTime.UtcNow;
             view.CreateDateUtc = DateTime.UtcNow;
+            split.name = view.StartDateUtc.ToString("MMM");
+            split.PersonID = view.People.First().Id;
         }
 
 
@@ -73,6 +76,7 @@ namespace SGIC.UI.Presenter
             split.Credit = view.Credit;
             split.Expense = view.Expense;
             split.PersonID = view.PersonID;
+            split.Extras = view.Extras;
 
             //Calculated values from model
             view.Commision = split.Commision;
