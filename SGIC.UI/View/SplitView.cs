@@ -51,6 +51,7 @@ namespace SGIC.UI.View
         public decimal Cash { get; set; }
         public List<Person> People { get; set; }
         public List<ExtraModel> Extras { get; set; }
+        public bool AllowEvents { get; set; }
         public event EventHandler<EventArgs> SaveSplit;
 
         public event EventHandler<EventArgs> NewSplit;
@@ -63,7 +64,8 @@ namespace SGIC.UI.View
 
         private void SplitView_Load(object sender, EventArgs e)
         {
-            this.isDirty = true;
+            this.isDirty = false;
+            this.AllowEvents = true;
             //Driver option
             this.cmbDriver.DataSource = this.People;
             this.cmbDriver.DisplayMember = "Name";
@@ -78,35 +80,47 @@ namespace SGIC.UI.View
 
         private void txtTotal_TextChanged(object sender, EventArgs e)
         {
-            decimal value = 0;
-            decimal.TryParse(txtTotal.Text, out value);
-            this.Total = value;
-            this.isDirty = true;
-            this.ManageUpdate();
+            if (this.AllowEvents)
+            {
+                decimal value = 0;
+                decimal.TryParse(txtTotal.Text, out value);
+                this.Total = value;
+                this.isDirty = true;
+                this.ManageUpdate();
+            }
         }
 
         private void txtExpenses_TextChanged(object sender, EventArgs e)
         {
-            decimal value = 0;
-            decimal.TryParse(txtExpenses.Text, out value);
-            this.Expense = value;
-            this.ManageUpdate();
+            if (this.AllowEvents)
+            {
+                decimal value = 0;
+                decimal.TryParse(txtExpenses.Text, out value);
+                this.Expense = value;
+                this.ManageUpdate();
+            }
         }
 
         private void txtToll_TextChanged(object sender, EventArgs e)
         {
-            decimal value = 0;
-            decimal.TryParse(txtToll.Text, out value);
-            this.Toll = value;
-            this.ManageUpdate();
+            if (this.AllowEvents)
+            {
+                decimal value = 0;
+                decimal.TryParse(txtToll.Text, out value);
+                this.Toll = value;
+                this.ManageUpdate();
+            }
         }
 
         private void txtCredit_TextChanged(object sender, EventArgs e)
         {
-            decimal value = 0;
-            decimal.TryParse(txtCredit.Text, out value);
-            this.Credit = value;
-            this.ManageUpdate();
+            if (this.AllowEvents)
+            {
+                decimal value = 0;
+                decimal.TryParse(txtCredit.Text, out value);
+                this.Credit = value;
+                this.ManageUpdate();
+            }
         }
 
         private void ManageUpdate()
@@ -129,6 +143,7 @@ namespace SGIC.UI.View
 
         private void UpdateView()
         {
+            this.AllowEvents = false;
             this.txtDriver.Text = this.DriversAmount.ToString("c");
             this.txtCommision.Text = this.Commision.ToString("c");
             this.txtDeposit.Text = this.Deposit.ToString("c");
@@ -140,7 +155,9 @@ namespace SGIC.UI.View
             this.lstExtras.DataSource = null;
             this.lstExtras.DisplayMember = "ShowValue";
             this.lstExtras.DataSource = this.Extras;
+            this.dtSelector.Value = this.StartDateUtc;
             this.Refresh();
+            this.AllowEvents = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -151,10 +168,11 @@ namespace SGIC.UI.View
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var id = 0;
-            int.TryParse(((ComboBox)sender).SelectedValue.ToString(), out id);
-            this.PersonID = id;
-            this.ManageUpdate();
+            if (this.AllowEvents)
+            {
+                this.PersonID = ((Person)((ComboBox)sender).SelectedValue).Id;
+                this.ManageUpdate();
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -197,8 +215,11 @@ namespace SGIC.UI.View
 
         private void dtSelector_ValueChanged(object sender, EventArgs e)
         {
-            this.StartDateUtc = ((DateTimePicker)sender).Value;
-            this.ManageUpdate();
+            if (this.AllowEvents)
+            {
+                this.StartDateUtc = ((DateTimePicker)sender).Value;
+                this.ManageUpdate();
+            }
         }
 
         private void btnPrev_Click(object sender, EventArgs e)

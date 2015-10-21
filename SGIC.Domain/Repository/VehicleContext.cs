@@ -15,6 +15,7 @@ namespace SGIC.Domain.Repository
         public VehicleContext()
         {
             Database.SetInitializer<VehicleContext>(null);
+            base.Configuration.LazyLoadingEnabled = true;
         }
 
         public DbSet<Split> Splits { get; set; }

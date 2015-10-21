@@ -47,11 +47,11 @@ namespace SGIC.UI.Presenter
             var people = repo.GetAllDrivers();
             //Create a new blank 
             split = new SplitModel();
-            split.name = view.StartDateUtc.ToString("MMM");
             split.PersonID = people.First().Id;
 
             view.StartDateUtc = DateTime.UtcNow;
             view.CreateDateUtc = DateTime.UtcNow;
+            split.name = this.SplitNumber(view.StartDateUtc) + "-" + view.StartDateUtc.ToString("MMMM");
             view.People = people;
             view.Extras = split.Extras;
             view.Total = 0;
@@ -75,9 +75,7 @@ namespace SGIC.UI.Presenter
 
         void OnPrevious(object sender, EventArgs e)
         {
-            var month = view.StartDateUtc.Month - 1;
-            var year = view.StartDateUtc.Year;
-            var splitDTO = repo.GetAllSplitsByMonth(month, year).OrderByDescending(x => x.StartDateUtc).FirstOrDefault();
+            var splitDTO = this.GetSplitbyMonth(view.StartDateUtc);
             if(splitDTO != null)
             {
                 split = Mapper.Map<SplitModel>(splitDTO);
@@ -95,7 +93,9 @@ namespace SGIC.UI.Presenter
                 view.DriversAmount = split.DirversAmount;
                 view.Deposit = split.Deposit;
                 view.Cash = split.Cash;
+                view.isDirty = false;
             }
+            //In case there is no split show a message
         }
 
         void OnNext(object sender, EventArgs e)
@@ -112,12 +112,37 @@ namespace SGIC.UI.Presenter
             split.PersonID = view.PersonID;
             split.Extras = view.Extras;
             split.StartDateUtc = view.StartDateUtc;
+            split.CreateDateUtc = view.CreateDateUtc;
 
             //Calculated values from model
             view.Commision = split.Commision;
             view.DriversAmount = split.DirversAmount;
             view.Deposit = split.Deposit;
             view.Cash = split.Cash;
+        }
+
+        private int SplitNumber(DateTime date)
+        {
+            var retval = 0;
+            if (date.Day >= 1 && date.Day <= 15)
+                retval = 1;
+            return retval;
+        }
+
+        private Split GetSplitbyMonth(DateTime date)
+        {
+            int month = 0, year = date.Year;
+            var number = this.SplitNumber(date);
+            if (number == 1)
+                month = date.Month - 1;
+            else
+                month = date.Month;
+                
+            var splitDTO = repo.GetAllSplitsByMonth(month, year).Where(x => x.Driver.Id == split.PersonID).OrderBy(x => x.StartDateUtc).ToList();
+            if (splitDTO.Count > 1)
+                return splitDTO[number];
+            else
+                return splitDTO.FirstOrDefault();
         }
     }
 }

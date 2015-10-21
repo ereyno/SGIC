@@ -43,6 +43,11 @@
             this.txtDeposit = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.dtSelector = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbDriver = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,11 +61,6 @@
             this.txtExtra = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.dtSelector = new System.Windows.Forms.DateTimePicker();
-            this.btnPrev = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.stsFooter = new System.Windows.Forms.StatusStrip();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -225,6 +225,52 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quincena";
             // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(168, 211);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 23;
+            this.btnNext.Text = "Siguiente";
+            this.btnNext.UseVisualStyleBackColor = true;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(87, 211);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 22;
+            this.btnNew.Text = "Nueva";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.Location = new System.Drawing.Point(6, 211);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(75, 23);
+            this.btnPrev.TabIndex = 21;
+            this.btnPrev.Text = "Anterior";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // dtSelector
+            // 
+            this.dtSelector.Location = new System.Drawing.Point(333, 33);
+            this.dtSelector.Name = "dtSelector";
+            this.dtSelector.Size = new System.Drawing.Size(185, 20);
+            this.dtSelector.TabIndex = 20;
+            this.dtSelector.ValueChanged += new System.EventHandler(this.dtSelector_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(290, 36);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Fecha";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -347,56 +393,11 @@
             this.label10.TabIndex = 16;
             this.label10.Text = "Nombre";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(290, 36);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "Fecha";
-            // 
-            // dtSelector
-            // 
-            this.dtSelector.Location = new System.Drawing.Point(333, 33);
-            this.dtSelector.Name = "dtSelector";
-            this.dtSelector.Size = new System.Drawing.Size(185, 20);
-            this.dtSelector.TabIndex = 20;
-            this.dtSelector.ValueChanged += new System.EventHandler(this.dtSelector_ValueChanged);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.Location = new System.Drawing.Point(6, 211);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(75, 23);
-            this.btnPrev.TabIndex = 21;
-            this.btnPrev.Text = "Anterior";
-            this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(87, 211);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 22;
-            this.btnNew.Text = "Nueva";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(168, 211);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 23;
-            this.btnNext.Text = "Siguiente";
-            this.btnNext.UseVisualStyleBackColor = true;
-            // 
             // stsFooter
             // 
             this.stsFooter.Location = new System.Drawing.Point(0, 268);
             this.stsFooter.Name = "stsFooter";
+            this.stsFooter.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.stsFooter.Size = new System.Drawing.Size(824, 22);
             this.stsFooter.TabIndex = 17;
             this.stsFooter.Text = "statusStrip1";
