@@ -65,7 +65,6 @@ namespace SGIC.UI.View
         private void SplitView_Load(object sender, EventArgs e)
         {
             this.isDirty = false;
-            this.AllowEvents = true;
             //Driver option
             this.cmbDriver.DataSource = this.People;
             this.cmbDriver.DisplayMember = "Name";
@@ -76,6 +75,7 @@ namespace SGIC.UI.View
             this.lstExtras.ValueMember = "Key";
             this.lstExtras.DataSource = this.Extras;
             this.lstExtras.Refresh();
+            this.UpdateView();
         }
 
         private void txtTotal_TextChanged(object sender, EventArgs e)

@@ -18,17 +18,28 @@ namespace SGIC.Domain.Repository
         }
         public List<Split> GetAllSplits()
         {
-            return Context.Splits.Include("Driver").ToList();
+            return Context.Splits
+                          .Include("Driver")
+                          .Include("Extras")
+                          .ToList();
         }
 
         public List<Split> GetAllSplitsByMonth(int month, int year)
         {
-            return Context.Splits.Include("Driver").Where(s => s.StartDateUtc.Month == month && s.StartDateUtc.Year == year).ToList();
+            return Context.Splits
+                          .Include("Driver")
+                          .Include("Extras")
+                          .Where(s => s.StartDateUtc.Month == month && s.StartDateUtc.Year == year)
+                          .ToList();
         }
 
         public Split GetSingleSplit(DateTime date)
         {
-            return Context.Splits.Include("Driver").Where(s => s.StartDateUtc == date).First();
+            return Context.Splits
+                          .Include("Driver")
+                          .Include("Extras")
+                          .Where(s => s.StartDateUtc == date)
+                          .First();
         }
 
         public List<Person> GetAllDrivers()

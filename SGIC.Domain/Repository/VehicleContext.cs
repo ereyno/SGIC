@@ -16,6 +16,7 @@ namespace SGIC.Domain.Repository
         {
             Database.SetInitializer<VehicleContext>(null);
             base.Configuration.LazyLoadingEnabled = true;
+            base.Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<Split> Splits { get; set; }
