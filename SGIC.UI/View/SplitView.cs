@@ -170,7 +170,7 @@ namespace SGIC.UI.View
         {
             if (this.AllowEvents)
             {
-                this.PersonID = ((Person)((ComboBox)sender).SelectedValue).Id;
+                this.PersonID = (int)((ComboBox)sender).SelectedValue;
                 this.ManageUpdate();
             }
         }
@@ -213,6 +213,11 @@ namespace SGIC.UI.View
             this.ManageAction(ActionEnum.New);
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            this.ManageAction(ActionEnum.Next);
+        }
+
         private void dtSelector_ValueChanged(object sender, EventArgs e)
         {
             if (this.AllowEvents)
@@ -252,6 +257,11 @@ namespace SGIC.UI.View
                     }
                     break;
                 case ActionEnum.Next:
+                    if (this.NextSplit != null)
+                    {
+                        this.NextSplit(this, EventArgs.Empty);
+                        this.UpdateView();
+                    }
                     break;
                 default:
                     break;

@@ -46,17 +46,17 @@ namespace SGIC.UI.Presenter
             people = repo.GetAllDrivers();
             view.People = people;
             //BlankSplit();
-            GetAndMapCurrentSplitByMonth(DateTime.UtcNow);
+            GetAndMapCurrentSplitByMonth(DateTime.UtcNow, people.FirstOrDefault().Id);
 
             view.StatusChange = "Ready";
 
         }
 
-        private void BlankSplit()
+        private void BlankSplit(int personId)
         {
             //Create a new blank 
             split = new SplitModel();
-            split.PersonID = people.First().Id;
+            split.PersonID = personId;
 
             split.StartDateUtc = DateTime.UtcNow;
             split.CreateDateUtc = DateTime.UtcNow;
@@ -72,7 +72,7 @@ namespace SGIC.UI.Presenter
 
         void OnNew(object sender, EventArgs e)
         {
-            BlankSplit();
+            BlankSplit(view.PersonID);
         }
 
         void OnPrevious(object sender, EventArgs e)
@@ -82,6 +82,7 @@ namespace SGIC.UI.Presenter
 
         void OnNext(object sender, EventArgs e)
         {
+            GetAndMapNextSplitByMonth(view.StartDateUtc);
         }
 
         private void GetAndMapPreviousSplitByMonth(DateTime date)
@@ -90,9 +91,15 @@ namespace SGIC.UI.Presenter
             MapSplit(splitDTO);
         }
 
-        private void GetAndMapCurrentSplitByMonth(DateTime date)
+        private void GetAndMapNextSplitByMonth(DateTime date)
         {
-            Split splitDTO = this.GetCurrentSplitbyMonth(date);
+            var splitDTO = this.GetNextSplitbyMonth(date);
+            MapSplit(splitDTO);
+        }
+
+        private void GetAndMapCurrentSplitByMonth(DateTime date, int personId)
+        {
+            Split splitDTO = this.GetCurrentSplitbyMonth(date, personId);
             MapSplit(splitDTO);
         }
 
@@ -105,7 +112,7 @@ namespace SGIC.UI.Presenter
             }
             else
             {
-                this.BlankSplit();
+                this.BlankSplit(people.First().Id);
             }
             //In case there is no split show a message
         }
@@ -132,21 +139,30 @@ namespace SGIC.UI.Presenter
 
         void OnModelChange(object sender, EventArgs e)
         {
-            //Values from screen
-            split.Total = view.Total;
-            split.Toll = view.Toll;
-            split.Credit = view.Credit;
-            split.Expense = view.Expense;
-            split.PersonID = view.PersonID;
-            split.Extras = view.Extras;
-            split.StartDateUtc = view.StartDateUtc;
-            split.CreateDateUtc = view.CreateDateUtc;
+            
+            if (split.PersonID != view.PersonID)
+            {
+                GetAndMapCurrentSplitByMonth(DateTime.UtcNow, view.PersonID);
+            }
+            else
+            {
+                //Values from screen
+                split.Total = view.Total;
+                split.Toll = view.Toll;
+                split.Credit = view.Credit;
+                split.Expense = view.Expense;
+                split.PersonID = view.PersonID;
+                split.Extras = view.Extras;
+                split.StartDateUtc = view.StartDateUtc;
+                split.CreateDateUtc = view.CreateDateUtc;
 
-            //Calculated values from model
-            view.Commision = split.Commision;
-            view.DriversAmount = split.DirversAmount;
-            view.Deposit = split.Deposit;
-            view.Cash = split.Cash;
+                //Calculated values from model
+                view.Commision = split.Commision;
+                view.DriversAmount = split.DirversAmount;
+                view.Deposit = split.Deposit;
+                view.Cash = split.Cash;
+            }
+
         }
 
         private int SplitNumber(DateTime date)
@@ -171,20 +187,39 @@ namespace SGIC.UI.Presenter
                 month = date.Month;
                 number--;
             }
-                
-            var splitDTO = repo.GetAllSplitsByMonth(month, year).Where(x => x.Driver.Id == split.PersonID).OrderBy(x => x.StartDateUtc).ToList();
-            if (splitDTO.Count > 1)
-                return splitDTO[number];
-            else
-                return splitDTO.FirstOrDefault();
+
+            return GetSplitByMonth(split.PersonID, month, year, number);
         }
 
-        private Split GetCurrentSplitbyMonth(DateTime date)
+        private Split GetCurrentSplitbyMonth(DateTime date, int personId)
         {
             int month = date.Month, year = date.Year;
             var number = this.SplitNumber(date);
 
-            var splitDTO = repo.GetAllSplitsByMonth(month, year).Where(x => x.Driver.Id == people.FirstOrDefault().Id).OrderBy(x => x.StartDateUtc).ToList();
+            return GetSplitByMonth(personId, month, year, number);
+        }
+
+        private Split GetNextSplitbyMonth(DateTime date)
+        {
+            int month = 0, year = date.Year;
+            var number = this.SplitNumber(date);
+            if (number == 0)
+            {
+                month = date.Month;
+                number++;
+            }
+            else
+            {
+                month = date.Month + 1;
+                number--;
+            }
+
+            return GetSplitByMonth(split.PersonID, month, year, number);
+        }
+
+        private Split GetSplitByMonth(int personId, int month, int year, int number)
+        {
+            var splitDTO = repo.GetAllSplitsByMonth(month, year).Where(x => x.Driver.Id == personId).OrderBy(x => x.StartDateUtc).ToList();
             if (splitDTO.Count > 1)
                 return splitDTO.ElementAt(number);
             else

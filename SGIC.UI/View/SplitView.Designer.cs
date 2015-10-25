@@ -233,6 +233,7 @@
             this.btnNext.TabIndex = 23;
             this.btnNext.Text = "Siguiente";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnNew
             // 
