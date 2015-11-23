@@ -25,14 +25,14 @@ namespace SGIC.UI.Model
         { 
             get 
             {
-                return ((this.Total * 20) / 100);
+                return ((this.Total * 22) / 100);
             } 
         }
         public decimal DirversAmount 
         { 
             get 
             {
-                return ((((this.Total - this.Commision) - (this.Expense / 2)) / 2) - (this.Total - this.Credit)) - this.Extras.Sum(x => x.Value);
+                return -(this.Total - this.Credit - (this.Expense / 2) - ((this.Total - this.Commision - this.Expense) / 2 )) - this.Extras.Sum(x => x.Value);
             } 
         }
         public decimal Deposit
